@@ -6,8 +6,18 @@
   
   
 }
+section{
 
+
+
+}
 #home{
 
-    height:1000px;
+    height:500px;
+}
+
+#home .content-container{
+align-items: center;
+align-self: center;
+
 }

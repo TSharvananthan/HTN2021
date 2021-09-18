@@ -3,7 +3,7 @@ import { Navbar } from './components/index';
 import './styles/global.css';
 import useSearchRestaurants from './hooks/useSearchRestaurants';
 import { useEffect } from 'react';
-
+import { Home } from "./pages/index"
 
 function App() {
 

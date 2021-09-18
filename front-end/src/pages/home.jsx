@@ -5,6 +5,12 @@ export const Home = () => {
     <section className="grid text-center justify-content-center" id="home">
       <div></div>
       <div className="content-container">
+        <div class="proto-container">
+          <div class="proto"></div>
+          <div class="proto"></div>
+          <div class="proto"></div>
+         
+        </div>
         <h1>
           Find reviews instantly with <span className="text-primary">AI</span>
         </h1>
@@ -13,7 +19,11 @@ export const Home = () => {
           restaurant, save money, and get instant feedback...
         </p>
         <form class="form-inline my-2 my-lg-0">
-          <button type="button" class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100" type="submit">
+          <button
+            type="button"
+            class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100"
+            type="submit"
+          >
             Start searching
           </button>
         </form>

@@ -14,3 +14,30 @@ align-items: center;
 align-self: center;
 
 }
+
+/* rectangle effect */
+
+.proto-container{
+/*Defines how far rectangles extend so this prevents it from overflowing in right side*/
+/*clip-path:inset(0 50% 0 0);*/
+position:absolute;
+
+top: 15%;
+height:70%;
+width:100%;
+/*Allows movement at certain areas that dont read mouse move*/
+pointer-events: none;
+
+}
+
+.proto{
+
+
+border: 3px solid rgba(255,255,255,0.1);
+height:80%;
+width:19%;
+float: left;
+margin-left: 1em;
+transform:translateX(-90%);
+}
+

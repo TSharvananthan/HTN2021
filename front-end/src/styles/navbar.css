@@ -7,6 +7,9 @@
 ul{list-style: none;
 }
 
+a{
+    text-decoration: none !important;
+}
 #nav {
   background-color: var(--main-bg-color);
 

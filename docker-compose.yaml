@@ -34,13 +34,13 @@ services:
         container_name: flask
         restart: always
         links:
-            # - db
+            - db
             - redis_queue
         depends_on:
-            # - db
+            - db
             - redis_queue
         environment:
-            # - MONGO_URI=mongodb://db:27017/db
+            - MONGO_URI=mongodb://db:27017/db
             - REDIS_URI=redis://redis_queue:6379/0
         expose:
             - 5000
@@ -54,25 +54,25 @@ services:
         container_name: worker
         restart: always
         links:
-            # - db
+            - db
             - redis_queue
         depends_on:
-            # - db
+            - db
             - redis_queue
         environment:
-            # - MONGO_URI=mongodb://db:27017/db
+            - MONGO_URI=mongodb://db:27017/db
             - REDIS_URI=redis://redis_queue:6379/0
         volumes:
             - ./flask:/app
 
-    # # Mongodb
-    # db:
-    #     image: mongo
-    #     container_name: db
-    #     restart: always
-    #     command: mongod
-    #     expose:
-    #         - 27017
+    # Mongodb
+    db:
+        image: mongo
+        container_name: db
+        restart: always
+        command: mongod
+        expose:
+            - 27017
 
     # Redis message queue
     redis_queue:

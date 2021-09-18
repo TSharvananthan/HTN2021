@@ -5,12 +5,12 @@ export const Navbar = () => {
     <div id="nav" className="nav w-100 h-50">
       <div className="container">
         <div className=" navbar nav ">
-          <p className="text-light brand">
+          <p className="text-light brand m-0">
             Review<span className="text-primary">AI</span>
           </p>
 
           {/*  navigation links */}
-          <ul className="d-flex flex-row">
+          <ul className="d-flex flex-row mb-0">
             <li className="nav-link text-light">
               <a className="text-light bg-gray-link" href="#">
                 How it works

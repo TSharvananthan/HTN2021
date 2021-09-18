@@ -5,8 +5,14 @@
 
 }
 ul{list-style: none;
+    align-items: center !important;
 }
-
+ul li{
+    align-self: center !important;
+    align-items: center impr !important;
+    margin:0;
+    padding:0;
+}
 a{
     text-decoration: none !important;
 }

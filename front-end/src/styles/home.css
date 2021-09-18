@@ -2,14 +2,18 @@
 
     display: grid;
     grid-template-columns: 1fr repeat(1, minmax(auto, 25em)) 1fr;
+    height: 100%;
 }
+
 
 #home{
 
-    height:500px;
+    height:700px;
+    background: black;
+   
 }
 
-#home .content-container{
+ .content-container{
 align-items: center;
 align-self: center;
 
@@ -21,11 +25,10 @@ align-self: center;
 
 position:absolute;
 
-top: 15%;
+top: 20%;
 height:70%;
 width:100%;
-/*Allows movement at certain areas that dont read mouse move*/
-pointer-events: none;
+
 
 }
 
@@ -38,3 +41,39 @@ margin-left: 1em;
 transform:translateX(-90%);
 }
 
+
+
+/* section b */
+
+.section-b{
+line-height: 2;
+height:400px;
+padding-top: 2em;
+position: relative;
+
+}
+
+.section-b p {
+
+
+    z-index: 9;
+}
+
+
+.section-b .img-bg{
+background-image: url('../images/bg_stars.png');
+background-repeat: no-repeat;
+background-size: cover;
+width:100%;
+height:400px;
+position:absolute;
+z-index: -19;
+margin: 0;
+padding: 0;
+
+}
+.section-b .content{
+
+    margin-top: 2em;
+    padding-top: 2em;
+}

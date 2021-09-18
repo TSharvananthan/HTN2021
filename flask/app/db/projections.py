@@ -1,2 +1,2 @@
-restaurant_projection = {"attributes": False}
+business_projection = {"attributes": False}
 id_projection = {"_id": True}

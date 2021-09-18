@@ -69,17 +69,17 @@ export const Home = () => {
         <section className="text-center section-d">
           <div className="img-bg"></div>
           <div class=" container content">
-            <h2 class="pb-5">How it works</h2>
+            <h2 class="pb-5">About us</h2>
             <p>
-              Enter the name of the business and see a list of reviews that are
-              simplified and classified as positive or negative!
-              <a> Try it out now! </a>
+                        We are a team of developers  a fullstack developer, a machine learning engineer,
+                        fullstack developer, machine learning and front-end developer 
             </p>
             <p>
-              To receive feedback from a review you can visit FeedBack section
-              to write an anonymnous review and our machine learning model will
-              do some cool tricks and give back a feedback of a sentimental
-              analysis of the review. <a> Try it out now! </a>
+              We recognize that a lot of the tools available pre-covid such as
+              mock interviews and in-person workshops are no longer available.
+              So, we created InterviewBuddy at StormHacks 2021. An online tool
+              that provides feedback to the answers you give during the one-way
+              interview.
             </p>
           </div>
         </section>

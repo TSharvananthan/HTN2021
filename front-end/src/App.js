@@ -1,23 +1,34 @@
-import { Navbar } from './components/index';
-import './styles/global.css';
-import { useEffect } from 'react';
+
+import { Navbar } from "./components/index";
+import "./styles/global.css";
+import { useEffect } from "react";
+import { Home } from "./pages/index";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import useSearchBusinesses from './hooks/useSearchBusinesses';
 
-function App() {
 
+function App() {
   // FIXME: Just to test out the hooks
+
   const { data, status } = useSearchBusinesses({ location: 'vancouver' });
+
   useEffect(() => {
     console.log(data);
   }, [status]);
 
   return (
     <>
-      <Navbar />
-      <div className='container'>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut dignissimos aliquid dolor earum
-        reiciendis, neque deleniti, aper
-      </div>
+      <Router>
+        <Navbar></Navbar>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route exact path="/reviews"></Route>
+          <Route exact path="/feedback"></Route>
+        </Switch>
+      </Router>
     </>
   );
 }

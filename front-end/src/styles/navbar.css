@@ -1,7 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400&display=swap");
 :root {
   --main-bg-color: #0c111b;
+  --link-bg-color: #BDBDBD;
+
 }
+ul{list-style: none;}
 
 #nav {
   background-color: var(--main-bg-color);
+
+}
+
+.brand{
+
+    font-weight:400;
+}
+
+.bg-gray-link{
+color:var(--link-bg-color) !important;
 }

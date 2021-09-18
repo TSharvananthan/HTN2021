@@ -1,0 +1,83 @@
+version: '3.7'
+
+services:
+    # Load balancer
+    nginx:
+        build: ./nginx
+        container_name: nginx_gateway
+        restart: always
+        links:
+            - flask
+            # - client
+        depends_on:
+            - flask
+            # - client
+        ports:
+            - '5000:80'
+
+    # # React client
+    # client:
+    #     container_name: client
+    #     build: ./client
+    #     restart: always
+    #     environment:
+    #         - CI=true
+    #         - NODE_ENV=development
+    #     expose:
+    #         - 3000
+    #     volumes:
+    #         - ./client/src:/app/src
+
+    # Flask backend
+    flask:
+        build: ./flask
+        container_name: flask
+        restart: always
+        links:
+            # - db
+            - redis_queue
+        depends_on:
+            # - db
+            - redis_queue
+        environment:
+            # - MONGO_URI=mongodb://db:27017/db
+            - REDIS_URI=redis://redis_queue:6379/0
+        expose:
+            - 5000
+        volumes:
+            - ./flask:/app
+
+    # Celery worker
+    worker:
+        build: ./flask
+        command: ['celery', '-A', 'worker.celery', 'worker', '-l', 'INFO']
+        container_name: worker
+        restart: always
+        links:
+            # - db
+            - redis_queue
+        depends_on:
+            # - db
+            - redis_queue
+        environment:
+            # - MONGO_URI=mongodb://db:27017/db
+            - REDIS_URI=redis://redis_queue:6379/0
+        volumes:
+            - ./flask:/app
+
+    # # Mongodb
+    # db:
+    #     image: mongo
+    #     container_name: db
+    #     restart: always
+    #     command: mongod
+    #     expose:
+    #         - 27017
+
+    # Redis message queue
+    redis_queue:
+        image: redis
+        container_name: redis_queue
+        restart: always
+        expose:
+            - 6379

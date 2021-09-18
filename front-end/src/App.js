@@ -1,5 +1,6 @@
+import { Navbar } from "./components/index";
+import "./styles/global.css";
 
-import { Navbar } from "./components/index"
 function App() {
   return (
     <>

@@ -19,7 +19,7 @@ align-self: center;
 
 }
 
-/* rectangle effect */
+/**** rectangle effect *****/
 
 .proto-container{
 
@@ -43,7 +43,7 @@ transform:translateX(-90%);
 
 
 
-/* section b */
+/******* section b ******/
 
 .section-b{
 line-height: 2;
@@ -53,11 +53,7 @@ position: relative;
 
 }
 
-.section-b p {
 
-
-    z-index: 9;
-}
 
 
 .section-b .img-bg{
@@ -73,6 +69,58 @@ padding: 0;
 
 }
 .section-b .content{
+
+    margin-top: 2em;
+    padding-top: 2em;
+}
+
+
+/********** section c *********/
+.section-c{
+
+line-height: 2;
+height:400px;
+padding-top: 2em;
+position: relative;
+background:black;
+
+
+}
+
+.section-c .content{
+
+    margin-top: 2em;
+    padding-top: 2em;
+}
+
+
+
+.section-d{
+
+line-height: 2;
+height:400px;
+padding-top: 2em;
+position: relative;
+
+
+
+}
+
+
+.section-d .img-bg{
+background-image: url('../images/bg_stars.png');
+background-repeat: no-repeat;
+background-size: cover;
+width:100%;
+height:400px;
+position:absolute;
+z-index: -19;
+margin: 0;
+padding: 0;
+
+}
+
+.section-d .content{
 
     margin-top: 2em;
     padding-top: 2em;

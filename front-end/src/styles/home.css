@@ -1,0 +1,13 @@
+.grid{
+
+    display: grid;
+    grid-template-columns: 1fr repeat(1, minmax(auto, 25em)) 1fr;
+
+  
+  
+}
+
+#home{
+
+    height:1000px;
+}

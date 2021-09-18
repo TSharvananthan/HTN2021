@@ -18,5 +18,5 @@ def init_mongo(app):
     )
 
     mongo.db.reviews.create_index("businessId")
-    mongo.db.restaurants.create_index("name")
-    mongo.db.restaurants.create_index("city")
+    mongo.db.businesses.create_index("name")
+    mongo.db.businesses.create_index("city")

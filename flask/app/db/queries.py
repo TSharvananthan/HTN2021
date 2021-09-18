@@ -1,6 +1,6 @@
 from bson.objectid import ObjectId
 from app.db import mongo
-from app.db.projections import restaurant_projection, id_projection
+from app.db.projections import business_projection, id_projection
 from app.db.utils import serialize_doc, serialize_docs, serialize_id
 from app.utils.misc import now
 
@@ -25,14 +25,14 @@ def get_user_by_id(user_id):
     return serialize_doc(user)
 
 
-def get_restaurant_by_id(restaurant_id):
-    restaurant = mongo.db.restaurants.find_one(
-        restaurant_id, projection=restaurant_projection
+def get_business_by_id(business_id):
+    business = mongo.db.businesses.find_one(
+        business_id, projection=business_projection
     )
-    return serialize_doc(restaurant)
+    return serialize_doc(business)
 
 
-def search_restaurants(name, location, page, page_size):
+def search_businesses(name, location, page, page_size):
     filter_opts = {}
 
     if name:
@@ -41,16 +41,16 @@ def search_restaurants(name, location, page, page_size):
     if location:
         filter_opts["city"] = {"$regex": f"^{location}", "$options": "i"}
 
-    total = mongo.db.restaurants.find(filter=filter_opts).count()
+    total = mongo.db.businesses.find(filter=filter_opts).count()
     pagination = {"total": total, "page": page, "pageSize": page_size}
 
-    restaurants = mongo.db.restaurants.find(
+    businesses = mongo.db.businesses.find(
         filter=filter_opts,
         skip=(page - 1) * page_size,
         limit=page_size,
-        projection=restaurant_projection,
+        projection=business_projection,
     )
-    return {"restaurants": serialize_docs(restaurants), "pagination": pagination}
+    return {"businesses": serialize_docs(businesses), "pagination": pagination}
 
 
 def search_locations(page, page_size):
@@ -90,28 +90,26 @@ def search_locations(page, page_size):
         },
     ]
 
-    result = list(mongo.db.restaurants.aggregate(pipeline))
+    result = list(mongo.db.businesses.aggregate(pipeline))
     result = result[0]
 
     return {"locations": result["data"], "pagination": result["metadata"][0]}
 
 
-def search_reviews(restaurant_id, restaurant_name, page, page_size):
+def search_reviews(business_id, business_name, page, page_size):
     filter_opts = {}
 
-    if restaurant_name:
-        restaurant_filter = {"name": {"$regex": f'^{restaurant_name}', "$options": "i"}}
-        restaurant_ids = mongo.db.restaurants.find(
+    if business_name:
+        restaurant_filter = {"name": {"$regex": f'^{business_name}', "$options": "i"}}
+        business_ids = mongo.db.businesses.find(
             filter=restaurant_filter, projection=id_projection
         )
-        restaurant_ids = list(restaurant_ids)
-        restaurant_ids = list(map(lambda id: id["_id"], restaurant_ids))
-        filter_opts["businessId"] = {"$in": restaurant_ids}
+        business_ids = list(business_ids)
+        business_ids = list(map(lambda id: id["_id"], business_ids))
+        filter_opts["businessId"] = {"$in": business_ids}
 
-    if restaurant_id:
-        filter_opts["businessId"] = restaurant_id
-
-    print(filter_opts)
+    if business_id:
+        filter_opts["businessId"] = business_id
 
     total = mongo.db.reviews.find(filter=filter_opts).count()
     pagination = {"total": total, "page": page, "pageSize": page_size}

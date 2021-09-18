@@ -4,7 +4,8 @@
   --link-bg-color: #BDBDBD;
 
 }
-ul{list-style: none;}
+ul{list-style: none;
+}
 
 #nav {
   background-color: var(--main-bg-color);

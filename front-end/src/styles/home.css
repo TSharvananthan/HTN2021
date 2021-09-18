@@ -18,8 +18,7 @@ align-self: center;
 /* rectangle effect */
 
 .proto-container{
-/*Defines how far rectangles extend so this prevents it from overflowing in right side*/
-/*clip-path:inset(0 50% 0 0);*/
+
 position:absolute;
 
 top: 15%;
@@ -31,8 +30,6 @@ pointer-events: none;
 }
 
 .proto{
-
-
 border: 3px solid rgba(255,255,255,0.1);
 height:80%;
 width:19%;

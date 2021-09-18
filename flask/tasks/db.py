@@ -4,6 +4,7 @@ from pymongo import MongoClient
 
 MONGO_URI = os.getenv("MONGO_URI")
 
+
 class Mongo:
     def __init__(self):
         self.conn = MongoClient(MONGO_URI, connect=False)

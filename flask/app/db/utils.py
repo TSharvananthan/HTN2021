@@ -2,6 +2,7 @@ def serialize_doc(doc):
     if not doc:
         return {}
     doc["_id"] = serialize_id(doc["_id"])
+    del doc["__v"]
     return doc
 
 

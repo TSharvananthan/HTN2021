@@ -6,7 +6,7 @@ class Config(object):
     TESTING = False
 
     MONGO_URI = os.getenv("MONGO_URI")
-    MONGO_TIMEOUT = 5000
+    MONGO_TIMEOUT = 30000
 
     CELERY_BROKER_URL = os.getenv("REDIS_URI")
     CELERY_RESULT_BACKEND = os.getenv("REDIS_URI")

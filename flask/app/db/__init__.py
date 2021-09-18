@@ -16,3 +16,7 @@ def init_mongo(app):
         serverSelectionTimeoutMS=TIMEOUT,
         socketTimeoutMS=TIMEOUT,
     )
+
+    mongo.db.reviews.create_index("bussinessId")
+    mongo.db.restaurants.create_index("name")
+    mongo.db.restaurants.create_index("city")

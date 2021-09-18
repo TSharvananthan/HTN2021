@@ -1,5 +1,5 @@
 from app.routes.reviews import review_routes
-from app.routes.restaurants import restaurant_routes
+from app.routes.businesses import business_routes
 from app.routes.task_status import task_routes
 import tasks
 
@@ -20,5 +20,5 @@ def register_routes(app):
         return {"tasks": task_ids}, 200
 
     review_routes(app)
-    restaurant_routes(app)
+    business_routes(app)
     task_routes(app)

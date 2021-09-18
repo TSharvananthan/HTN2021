@@ -17,7 +17,7 @@ function parseLine(line) {
   return null;
 }
 
-async function processRestaurant(buff) {
+async function processBusiness(buff) {
   const data = parseLine(buff);
   if (data) {
     console.log({ businessId: data.business_id });
@@ -37,7 +37,7 @@ async function processRestaurant(buff) {
       categories: data.categories,
       hours: data.hours,
     };
-    const dbDoc = new Restaurant(docData);
+    const dbDoc = new Business(docData);
     await dbDoc.save();
   }
 }
@@ -74,7 +74,7 @@ async function initMongo() {
   }
 }
 
-const restaurantSchema = Schema({
+const businessSchema = Schema({
   _id: String,
   name: String,
   address: String,
@@ -95,7 +95,7 @@ const restaurantSchema = Schema({
     of: String,
   },
 });
-const Restaurant = model('Restaurant', restaurantSchema);
+const Business = model('Business', businessSchema);
 
 const reviewSchema = Schema({
   _id: String,
@@ -120,9 +120,9 @@ const seed = async () => {
     crlfDelay: Infinity,
   });
 
-  console.log('seeding restaurants');
+  console.log('seeding businesses');
   for await (const line of restRl) {
-    await processRestaurant(line);
+    await processBusiness(line);
   }
 
   const reviewRl = readLine.createInterface({
@@ -135,7 +135,7 @@ const seed = async () => {
     await processReview(line);
   }
 
-  console.log({ restaurant: await Restaurant.countDocuments(), reviews: await Review.countDocuments() });
+  console.log({ businesses: await Business.countDocuments(), reviews: await Review.countDocuments() });
   await mongo.connection.close();
 };
 

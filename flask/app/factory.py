@@ -1,4 +1,5 @@
 from app.errors.handlers import register_error_handlers
+from app.db import init_mongo
 from app.routes import register_routes
 from flask import Flask
 from config import DevConfig
@@ -15,6 +16,7 @@ def create_app(type="app"):
 
     app.config.from_object(cfg)
     configure_celery(app, tasks.celery)
+    init_mongo(app)
 
     register_error_handlers(app)
     register_routes(app)

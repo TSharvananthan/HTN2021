@@ -19,7 +19,7 @@ export const Home = () => {
               </h1>
               <p>
                 Simplifying customer reviews for you so you can find the best
-                restaurant, save money, and get instant feedback...
+                businesses, save money, and get instant feedback...
               </p>
               <form class="form-inline my-2 my-lg-0">
                 <button
@@ -56,13 +56,13 @@ export const Home = () => {
           <div class=" container ">
             <h2 class="pb-5">Inspiration</h2>
             <p>
-              Every year, thousands of new restaurants open up for business, but
-              how do restaurants know how customers are feeling? It takes time
+              Every year, hundreds of thousands of new businesses open up, but
+              how do businesses know how customers are feeling? It takes time
               to find the right views and often there is ambiguity. This brought
               us an idea to help business and as welll as customers to have an
               app to find lots of views that are simplified with no more
-              wondering how a customer feel, and allows others to find a place
-              for their family and friends to enjoy a nice meal.
+              wondering how a customer feel, and allows others to find the service they need
+              for their family and friends.
             </p>
           </div>
         </section>

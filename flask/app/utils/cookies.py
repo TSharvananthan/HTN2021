@@ -21,7 +21,7 @@ def set_user_cookie(user_id):
     """
 
     def set_user_id(response):
-        response.set_cookie(USER_COOKIE_KEY, user_id, httponly=True)
+        response.set_cookie(USER_COOKIE_KEY, user_id, httponly=False)
         return response
 
     return set_user_id

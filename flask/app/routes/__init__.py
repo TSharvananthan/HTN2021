@@ -1,3 +1,5 @@
+from app.routes.reviews import review_routes
+from app.routes.restaurants import restaurant_routes
 from app.routes.task_status import task_routes
 import tasks
 
@@ -17,4 +19,6 @@ def register_routes(app):
             app.logger.info("Task[%s] started", tid)
         return {"tasks": task_ids}, 200
 
+    review_routes(app)
+    restaurant_routes(app)
     task_routes(app)

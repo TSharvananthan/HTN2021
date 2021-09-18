@@ -8,25 +8,25 @@ services:
         restart: always
         links:
             - flask
-            # - client
+            - client
         depends_on:
             - flask
-            # - client
+            - client
         ports:
             - '5000:80'
 
-    # # React client
-    # client:
-    #     container_name: client
-    #     build: ./client
-    #     restart: always
-    #     environment:
-    #         - CI=true
-    #         - NODE_ENV=development
-    #     expose:
-    #         - 3000
-    #     volumes:
-    #         - ./client/src:/app/src
+    # React client
+    client:
+        container_name: client
+        build: ./front-end
+        restart: always
+        environment:
+            - CI=true
+            - NODE_ENV=development
+        expose:
+            - 3000
+        volumes:
+            - ./front-end/src:/app/src
 
     # Flask backend
     flask:

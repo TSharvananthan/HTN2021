@@ -9,10 +9,10 @@ class Mongo:
     def __init__(self):
         self.conn = MongoClient(MONGO_URI, connect=False)
 
-    def save_stats(self, question_id, stats):
+    def save_sentiment_data(self, review_id, stats):
         """
-        Save computed stats for a question to db
+        Save computed stats for a review to db
         """
-        self.conn["db"]["questions"].find_one_and_update(
-            {"_id": ObjectId(question_id)}, {"$set": {"stats": stats}}
+        self.conn["db"]["reviews"].find_one_and_update(
+            {"_id": review_id}, {"$set": {"analysis": stats}}
         )

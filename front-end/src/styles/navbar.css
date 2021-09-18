@@ -1,0 +1,9 @@
+:root{
+
+--main-bg-color: #0C111B;    
+}
+
+
+#nav{
+background-color: var(--main-bg-color);
+}

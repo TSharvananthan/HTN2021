@@ -1,12 +1,10 @@
-
-import { Navbar } from "./components/index";
-import "./styles/global.css";
-import { useEffect } from "react";
-import { Home ,Reviews} from "./pages/index";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Navbar } from './components/index';
+import './styles/global.css';
+import { useEffect } from 'react';
+import { Home, Reviews } from './pages/index';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import useSearchBusinesses from './hooks/useSearchBusinesses';
-
 
 function App() {
   // FIXME: Just to test out the hooks
@@ -22,13 +20,13 @@ function App() {
       <Router>
         <Navbar></Navbar>
         <Switch>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Home></Home>
           </Route>
-          <Route exact path="/reviews">
-<Reviews></Reviews>
+          <Route exact path='/reviews'>
+            <Reviews></Reviews>
           </Route>
-          <Route exact path="/feedback"></Route>
+          <Route exact path='/feedback'></Route>
         </Switch>
       </Router>
     </>

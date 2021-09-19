@@ -17,6 +17,8 @@ export const Reviews = () => {
     { enabled: false, onSuccess: (data) => console.log(data.reviews) }
   );
 
+  const search_results = Object.values(data); // Converts data object into array to iterate
+
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchReviews();
@@ -103,6 +105,10 @@ export const Reviews = () => {
             {/* {status && status.loading && <Loading></Loading>}
             {status && status.success && <Success></Success>}
             {status && status.error && <Error></Error>} */}
+            {search_results &&
+              search_results.map((business_info, index) => {
+                return <Card key={index} props={business_info}></Card>;
+              })}
           </div>
         </div>
       </div>

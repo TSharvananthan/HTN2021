@@ -2,7 +2,7 @@
 
 :root {
   --main-bg-color: #0c111b;
-  --link-bg-color: #BDBDBD;
+  --link-bg-color: #bdbdbd;
 }
 
 ul {
@@ -23,6 +23,7 @@ a {
 
 #nav {
   background-color: var(--main-bg-color);
+  font-family: "Mulish", sans-serif;
 }
 
 .brand {

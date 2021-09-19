@@ -17,7 +17,7 @@ export const Reviews = () => {
     { enabled: false, onSuccess: (data) => console.log(data.reviews) }
   );
 
-  const search_results = Object.values(data); // Converts data object into array to iterate
+  const search_results = Object.values(data ? data : {}); // Converts data object into array to iterate
 
   const handleSubmit = (e) => {
     e.preventDefault();

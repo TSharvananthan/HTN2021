@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/home.css";
 import { Link } from "react-router-dom";
+
 export const Home = () => {
     return (
-      <>
+      <div>
         <section className="text-center" id="home">
           <div class=" container grid justify-content-center">
             <div></div>
@@ -13,23 +14,14 @@ export const Home = () => {
                 <div class="proto"></div>
                 <div class="proto"></div>
               </div>
-              <h1>
-                Find reviews instantly with{" "}
-                <span className="text-primary">AI</span>
-              </h1>
-              <p>
-                Simplifying customer reviews for you so you can find the best
-                businesses, save money, and get instant feedback...
-              </p>
-              <form class="form-inline my-2 my-lg-0">
-                <button
-                  type="button"
-                  class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100"
-                  type="submit"
-                >
+              <h1> Find reviews instantly with <span className="text-primary">AI</span> </h1>
+              <p> Simplifying customer reviews for you so you can find the best
+                businesses, save money, and get instant feedback... </p>
+              <Link to="/reviews">
+                <button type="button" class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100" type="submit">
                   Start searching
                 </button>
-              </form>
+              </Link>
             </div>
             <div></div>
           </div>
@@ -72,7 +64,7 @@ export const Home = () => {
             <h2 class="pb-5">About us</h2>
             <p>
                         We are a team of developers  a fullstack developer, a machine learning engineer,
-                        fullstack developer, machine learning and front-end developer 
+                        fullstack developer, machine learning and front-end developer
             </p>
             <p>
               We recognize that a lot of the tools available pre-covid such as
@@ -83,7 +75,7 @@ export const Home = () => {
             </p>
           </div>
         </section>
-      </>
+      </div>
     );
 };
 export default Home;

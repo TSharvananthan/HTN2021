@@ -1,127 +1,95 @@
-.grid{
-
-    display: grid;
-    grid-template-columns: 1fr repeat(1, minmax(auto, 25em)) 1fr;
-    height: 100%;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr repeat(1, minmax(auto, 25em)) 1fr;
+  height: 100%;
 }
 
-
-#home{
-
-    height:700px;
-    background: black;
-   
+#home {
+  height: 700px;
+  background: black;
 }
 
- .content-container{
-align-items: center;
-align-self: center;
-
+.content-container {
+  align-items: center;
+  align-self: center;
 }
 
 /**** rectangle effect *****/
-
-.proto-container{
-
-position:absolute;
-
-top: 20%;
-height:70%;
-width:100%;
-
-
+.proto-container {
+  position: absolute;
+  top: 20%;
+  height: 70%;
+  width: 100%;
 }
 
-.proto{
-border: 3px solid rgba(255,255,255,0.1);
-height:80%;
-width:19%;
-float: left;
-margin-left: 2em;
-transform:translateX(-100%);
+.proto {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  height: 80%;
+  width: 19%;
+  float: left;
+  margin-left: 2em;
+  transform: translateX(-100%);
 }
-
-
 
 /******* section b ******/
-
-.section-b{
-line-height: 2;
-height:400px;
-padding-top: 2em;
-position: relative;
-
+.section-b {
+  line-height: 2;
+  height: 400px;
+  padding-top: 2em;
+  position: relative;
 }
 
-
-
-
-.section-b .img-bg{
-background-image: url('../images/bg_stars.png');
-background-repeat: no-repeat;
-background-size: cover;
-width:100%;
-height:400px;
-position:absolute;
-z-index: -19;
-margin: 0;
-padding: 0;
-
-}
-.section-b .content{
-
-    margin-top: 2em;
-    padding-top: 2em;
+.section-b .img-bg {
+  background-image: url('../images/bg_stars.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  z-index: -19;
+  margin: 0;
+  padding: 0;
 }
 
+.section-b .content {
+  margin-top: 2em;
+  padding-top: 2em;
+}
 
 /********** section c *********/
-.section-c{
-
-line-height: 2;
-height:400px;
-padding-top: 2em;
-position: relative;
-background:black;
-
-
+.section-c {
+  line-height: 2;
+  height: 400px;
+  padding-top: 2em;
+  position: relative;
+  background: black;
 }
 
-.section-c .content{
-
-    margin-top: 2em;
-    padding-top: 2em;
+.section-c .content {
+  margin-top: 2em;
+  padding-top: 2em;
 }
 
-
-
-.section-d{
-
-line-height: 2;
-height:400px;
-padding-top: 2em;
-position: relative;
-
-
-
+.section-d {
+  line-height: 2;
+  height: 400px;
+  padding-top: 2em;
+  position: relative;
 }
 
-
-.section-d .img-bg{
-background-image: url('../images/bg_stars.png');
-background-repeat: no-repeat;
-background-size: cover;
-width:100%;
-height:400px;
-position:absolute;
-z-index: -19;
-margin: 0;
-padding: 0;
-
+.section-d .img-bg {
+  background-image: url('../images/bg_stars.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  z-index: -19;
+  margin: 0;
+  padding: 0;
 }
 
-.section-d .content{
-
-    margin-top: 2em;
-    padding-top: 2em;
+.section-d .content {
+  margin-top: 2em;
+  padding-top: 2em;
 }

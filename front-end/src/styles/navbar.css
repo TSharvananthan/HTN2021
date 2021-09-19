@@ -1,31 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400&display=swap");
+
 :root {
   --main-bg-color: #0c111b;
   --link-bg-color: #BDBDBD;
+}
 
+ul {
+  list-style: none;
+  align-items: center !important;
 }
-ul{list-style: none;
-    align-items: center !important;
+
+ul li {
+  align-self: center !important;
+  align-items: center impr !important;
+  margin: 0;
+  padding: 0;
 }
-ul li{
-    align-self: center !important;
-    align-items: center impr !important;
-    margin:0;
-    padding:0;
+
+a {
+  text-decoration: none !important;
 }
-a{
-    text-decoration: none !important;
-}
+
 #nav {
   background-color: var(--main-bg-color);
-
 }
 
-.brand{
-
-    font-weight:400;
+.brand {
+  font-weight: 400;
 }
 
-.bg-gray-link{
-color:var(--link-bg-color) !important;
+.bg-gray-link {
+  color: var(--link-bg-color) !important;
 }

@@ -7,7 +7,7 @@ export const Navbar = () => {
     <div className="container">
       <div className="navbar nav">
         <p className="text-light brand m-0">
-          Review<span className="text-primary">AI</span>
+          <span className="text-primary">Sentimentality</span>
         </p>
 
         {/* navigation links */}

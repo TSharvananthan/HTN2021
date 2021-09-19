@@ -106,10 +106,10 @@ export const Reviews = () => {
             {status && status.loading && <Loading></Loading>}
             {status && status.success && <Success></Success>}
             {status && status.error && <Error></Error>}
-            {data &&
+            {/* {data &&
               data.map((business_info, index) => {
                 return <Card key={index} props={business_info}></Card>;
-              })}
+              })} */}
           </div>
         </div>
       </div>

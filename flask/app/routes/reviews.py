@@ -1,3 +1,4 @@
+from tasks.utils import predict_json
 from app.constants import DEFAULT_PAGE, DEFAULT_PAGE_SIZE
 from app.constants import DEFAULT_PAGE, DEFAULT_PAGE_SIZE
 from app.db.queries import search_reviews
@@ -16,3 +17,10 @@ def review_routes(app):
             business_id, business_name, int(page), int(page_size)
         )
         return response, 200
+
+    @app.route("/api/reviews", methods=["POST"])
+    def analyse_review():
+        body = request.get_json(force=True)
+        raw_text = body['review']
+        result = predict_json(instances=[raw_text])
+        return { 'sentiment': result[0] }, 200

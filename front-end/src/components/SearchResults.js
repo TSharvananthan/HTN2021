@@ -113,7 +113,7 @@ function SearchResults({ status, data, page, onPageChange, total }) {
       }}
       autoHeight
       loading={status === 'loading'}
-      rowsPerPageOptions={[20]}
+      rowsPerPageOptions={[10]}
       paginationMode='server'
       rowCount={total}
       columns={columns}
@@ -127,7 +127,7 @@ function SearchResults({ status, data, page, onPageChange, total }) {
       hideFooterSelectedRowCount
       pagination
       page={page}
-      pageSize={20}
+      pageSize={10}
       onPageChange={onPageChange}
     />
   );

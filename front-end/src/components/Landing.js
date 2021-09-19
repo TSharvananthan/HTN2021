@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import useSearchReviews from '../hooks/useSearchReviews';
 import SearchResults from './SearchResults';
+import { Link } from 'react-router-dom';
 
 function Landing() {
   const [name, setName] = useState('');
@@ -18,7 +19,7 @@ function Landing() {
     },
   };
   const { data, status } = useSearchReviews(
-    { businessName: name, page, pageSize: 20 },
+    { businessName: name, page, pageSize: 10 },
     searchOptions
   );
 
@@ -29,10 +30,11 @@ function Landing() {
       </Typography>
       <Typography variant='h6' component='h2' gutterBottom>
         Simplifying customer reviews so you can find the <strong>best businesses</strong>,{' '}
-        <strong>save money</strong>, and get <strong>instant feedback</strong>
+        <strong>save money</strong>, and get <strong>instant feedback</strong>. <br />
+        <Link to='/test'>Test it yourself</Link> or search for existing reviews below
       </Typography>
 
-      <Grid container justify='center' spacing={2}>
+      <Grid container justify='center' spacing={2} alignItems='center'>
         <Grid item xs={12} md={6}>
           <TextField
             label='Business name'

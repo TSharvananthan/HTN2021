@@ -6,6 +6,7 @@ from tasks.db import Mongo
 celery = Celery(__name__, autofinalize=False)
 celery.config_from_object(__name__)
 
+
 @celery.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
     # Calls test('hello') every 10 seconds.
@@ -39,9 +40,7 @@ def process_review(self):
 
     return {"updated": rids, "result": result}
 
+
 celery.conf.beat_schedule = {
-    "sentiment-analysis": {
-    "task": "tasks.process_review",
-    "schedule": 5.0
-}
+    "sentiment-analysis": {"task": "tasks.process_review", "schedule": 5.0}
 }

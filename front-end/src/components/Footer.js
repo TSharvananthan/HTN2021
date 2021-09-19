@@ -25,7 +25,7 @@ const Footer = () => (
       backgroundColor: theme => theme.palette.grey[300],
     }}
   >
-    <Container maxWidth='md'>
+    <Container maxWidth='lg'>
       <Typography variant='body1'>AI powered review analysis</Typography>
       <Copyright />
     </Container>

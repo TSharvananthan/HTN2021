@@ -28,9 +28,9 @@ export const Reviews = () => {
       <div className="container">
         <h1 className="title text-center">Find reviews</h1>
       
-          <div className="wrapper">
+          <div className="search-container">
        
-            <section role="search" className="search grid-item">
+            <section role="search" className=" grid-item search">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label for="exampleInputEmail1">Company (optional)</label>
@@ -67,7 +67,9 @@ export const Reviews = () => {
             </section>
           <div className="grid-item">
           
-            <Card></Card></div>
+            <Card></Card>
+          
+          </div>
           </div>
   
 

@@ -1,7 +1,7 @@
 
 .card-container{
     background:#232832  !important;
-    
+  
 }
 .date{
 
@@ -20,4 +20,10 @@ font-size: 1.1em;
 .negative-review{
 
     border-left: 20px solid red !important;
+}
+
+.grid-item {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  
 }

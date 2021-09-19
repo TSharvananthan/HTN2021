@@ -2,7 +2,7 @@ from bson.objectid import ObjectId
 from app.db import mongo
 from app.db.projections import business_projection, id_projection
 from app.db.utils import serialize_doc, serialize_docs, serialize_id
-from app.utils.misc import now
+from app.utils.misc import find, now
 
 
 def create_new_user():
@@ -26,9 +26,7 @@ def get_user_by_id(user_id):
 
 
 def get_business_by_id(business_id):
-    business = mongo.db.businesses.find_one(
-        business_id, projection=business_projection
-    )
+    business = mongo.db.businesses.find_one(business_id, projection=business_projection)
     return serialize_doc(business)
 
 
@@ -97,14 +95,15 @@ def search_locations(page, page_size):
 
 
 def search_reviews(business_id, business_name, page, page_size):
-    filter_opts = {}
+    filter_opts = {"sentiment": {"$exists": True}}
+    business_docs = []
 
     if business_name:
-        restaurant_filter = {"name": {"$regex": f'^{business_name}', "$options": "i"}}
-        business_ids = mongo.db.businesses.find(
-            filter=restaurant_filter, projection=id_projection
+        business_filter = {"name": {"$regex": f"^{business_name}", "$options": "i"}}
+        business_docs = list(
+            mongo.db.businesses.find(filter=business_filter, projection=business_projection)
         )
-        business_ids = list(business_ids)
+        business_ids = list(business_docs)
         business_ids = list(map(lambda id: id["_id"], business_ids))
         filter_opts["businessId"] = {"$in": business_ids}
 
@@ -117,4 +116,19 @@ def search_reviews(business_id, business_name, page, page_size):
     reviews = mongo.db.reviews.find(
         filter=filter_opts, skip=(page - 1) * page_size, limit=page_size
     )
-    return {"reviews": serialize_docs(reviews), "pagination": pagination}
+    reviews = serialize_docs(reviews)
+
+    if business_name:
+      def map_business_to_review(review):
+          business = find(lambda b: b["_id"] == review["businessId"], business_docs)
+          review["business"] = business
+          return review
+
+      reviews = list(
+          map(
+              map_business_to_review,
+              reviews,
+          )
+      )
+
+    return {"reviews": reviews, "pagination": pagination}

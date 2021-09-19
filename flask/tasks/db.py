@@ -12,7 +12,7 @@ class Mongo:
         Query for review docs which do not have the "sentiment" field
         """
         filter_dict = {"sentiment": {"$exists": False}}
-        raw_reviews = self.conn["db"]["reviews"].find(filter=filter_dict, limit=200)
+        raw_reviews = self.conn["db"]["reviews"].find(filter=filter_dict, limit=500)
         return list(raw_reviews)
 
     def save_sentiment_data(self, review_id, stats):

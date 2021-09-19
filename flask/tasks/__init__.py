@@ -42,6 +42,6 @@ def process_review(self):
 celery.conf.beat_schedule = {
     "sentiment-analysis": {
     "task": "tasks.process_review",
-    "schedule": 10.0
+    "schedule": 5.0
 }
 }

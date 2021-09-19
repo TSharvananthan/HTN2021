@@ -1,7 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import useSearchReviews from '../hooks/useSearchReviews';
@@ -9,24 +8,22 @@ import SearchResults from './SearchResults';
 
 function Landing() {
   const [name, setName] = useState('');
-  const [location, setLocation] = useState(undefined);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
 
   const searchOptions = {
     enabled: !!name,
     onSuccess: data => {
-      console.log(data);
+      setTotal(data.pagination.total);
     },
   };
-  const {
-    data,
-    isLoading,
-    isSuccess,
-    isError,
-    refetch: searchReviews,
-  } = useSearchReviews({ name, location }, searchOptions);
+  const { data, status } = useSearchReviews(
+    { businessName: name, page, pageSize: 20 },
+    searchOptions
+  );
 
   return (
-    <Container component='main' sx={{ mt: 8, mb: 2, bg: '' }} maxWidth='md'>
+    <Container component='main' sx={{ mt: 8, mb: 2 }} maxWidth='lg'>
       <Typography variant='h2' component='h1' gutterBottom>
         Find reviews with AI
       </Typography>
@@ -35,41 +32,28 @@ function Landing() {
         <strong>save money</strong>, and get <strong>instant feedback</strong>...
       </Typography>
 
-      <Box
-        component='form'
-        sx={{
-          '& > :not(style)': { mt: 1.5, mb: 1.5 },
-        }}
-      >
-        <TextField
-          label='Business name'
-          variant='filled'
-          margin='dense'
-          fullWidth
-          value={name}
-          onChange={e => setName(e.target.value)}
-          required
-        />
-        <TextField
-          label='City'
-          variant='filled'
-          fullWidth
-          value={location}
-          onChange={e => setLocation(e.target.value)}
-        />
-      </Box>
-      <Button
-        variant='contained'
-        disableElevation
-        color='primary'
-        size='large'
-        onClick={() => {
-          searchReviews();
-        }}
-      >
-        Search
-      </Button>
-      <SearchResults isLoading={isLoading} isError={isError} isSuccess={isSuccess} reviews={data} />
+      <Grid container justify='center' spacing={2}>
+        <Grid item xs={12} md={6}>
+          <TextField
+            label='Business name'
+            variant='filled'
+            margin='dense'
+            fullWidth
+            value={name}
+            onChange={e => setName(e.target.value)}
+            required
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <SearchResults
+            status={status}
+            data={data}
+            page={page}
+            total={total}
+            onPageChange={newPage => newPage > 0 && setPage(newPage)}
+          />
+        </Grid>
+      </Grid>
     </Container>
   );
 }

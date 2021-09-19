@@ -3,3 +3,5 @@ env
 node_modules
 yelp-*.json
 todo.md
+celerybeat*
+creds.json

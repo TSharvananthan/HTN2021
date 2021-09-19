@@ -5,6 +5,7 @@ README.md
 build
 __pycache__
 .pytest_cache
+creds.json
 env
 Makefile
 README.md

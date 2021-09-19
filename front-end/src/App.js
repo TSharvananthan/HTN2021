@@ -1,18 +1,13 @@
-
 import { Navbar } from "./components/index";
 import "./styles/global.css";
+import useSearchRestaurants from "./hooks/useSearchRestaurants";
 import { useEffect } from "react";
-import { Home } from "./pages/index";
+import { Home, Reviews } from "./pages/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import useSearchBusinesses from './hooks/useSearchBusinesses';
-
 
 function App() {
   // FIXME: Just to test out the hooks
-
-  const { data, status } = useSearchBusinesses({ location: 'vancouver' });
-
+  const { data, status } = useSearchRestaurants({ location: "vancouver" });
   useEffect(() => {
     console.log(data);
   }, [status]);
@@ -25,7 +20,9 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route exact path="/reviews"></Route>
+          <Route exact path="/reviews">
+            <Reviews></Reviews>
+          </Route>
           <Route exact path="/feedback"></Route>
         </Switch>
       </Router>

@@ -2,7 +2,7 @@
 import { Navbar } from "./components/index";
 import "./styles/global.css";
 import { useEffect } from "react";
-import { Home } from "./pages/index";
+import { Home ,Reviews} from "./pages/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import useSearchBusinesses from './hooks/useSearchBusinesses';
@@ -25,7 +25,9 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route exact path="/reviews"></Route>
+          <Route exact path="/reviews">
+<Reviews></Reviews>
+          </Route>
           <Route exact path="/feedback"></Route>
         </Switch>
       </Router>

@@ -1,0 +1,23 @@
+
+.card-container{
+    background:#232832  !important;
+    
+}
+.date{
+
+
+  font-size: 0.9em;
+  color: lightgray;
+}
+.review-text{
+font-size: 1.1em;
+
+}
+.positive-review{
+
+    border-left: 20px solid green !important;
+}
+.negative-review{
+
+    border-left: 20px solid red !important;
+}

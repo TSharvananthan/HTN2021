@@ -19,7 +19,7 @@ export const Reviews = () => {
   );
 
 
-  const search_results = data ? data.reviews : [];
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,9 +106,9 @@ export const Reviews = () => {
             {status && status.loading && <Loading></Loading>}
             {status && status.success && <Success></Success>}
             {status && status.error && <Error></Error>}
-            {search_results &&
-              search_results.map((business_info, index) => {
-                return <Card key={index} props={business_info}></Card>;
+            {data &&
+              data.reviews.map((business_info, index) => {
+                return <Card key={index} business_info={business_info}></Card>;
               })} 
           </div>
         </div>

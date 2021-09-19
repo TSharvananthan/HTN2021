@@ -42,8 +42,36 @@ services:
         environment:
             - MONGO_URI=mongodb://mongodb:27017/db
             - REDIS_URI=redis://redis_queue:6379/0
+            - GOOGLE_APPLICATION_CREDENTIALS=creds.json
+            - MODEL_NAME=sa1model_tf
+            - VERSION_NAME=v0_0_0
+            - REGION=us-east1
+            - GCP_PROJECT=hack-the-north-2021-326503
         expose:
             - 5000
+        volumes:
+            - ./flask:/app
+
+    # Celery beat scheduler
+    beat:
+        build: ./flask
+        command: ['celery', '-A', 'worker.celery', 'beat', '-l', 'INFO']
+        container_name: beat
+        restart: always
+        links:
+            - mongodb
+            - redis_queue
+        depends_on:
+            - mongodb
+            - redis_queue
+        environment:
+            - MONGO_URI=mongodb://mongodb:27017/db
+            - REDIS_URI=redis://redis_queue:6379/0
+            - GOOGLE_APPLICATION_CREDENTIALS=creds.json
+            - MODEL_NAME=sa1model_tf
+            - VERSION_NAME=v0_0_0
+            - REGION=us-east1
+            - GCP_PROJECT=hack-the-north-2021-326503
         volumes:
             - ./flask:/app
 
@@ -62,6 +90,11 @@ services:
         environment:
             - MONGO_URI=mongodb://mongodb:27017/db
             - REDIS_URI=redis://redis_queue:6379/0
+            - GOOGLE_APPLICATION_CREDENTIALS=creds.json
+            - MODEL_NAME=sa1model_tf
+            - VERSION_NAME=v0_0_0
+            - REGION=us-east1
+            - GCP_PROJECT=hack-the-north-2021-326503
         volumes:
             - ./flask:/app
 

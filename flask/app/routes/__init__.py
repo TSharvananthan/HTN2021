@@ -12,12 +12,16 @@ def register_routes(app):
 
     @app.route("/api/test-task", methods=["GET"])
     def test_task():
-        task_ids = [None] * 10
-        for i in range(10):
-            tid = tasks.add.delay(i, 5)
-            task_ids[i] = tid.id
-            app.logger.info("Task[%s] started", tid)
-        return {"tasks": task_ids}, 200
+        # task_ids = [None] * 10
+        # for i in range(10):
+        #     tid = tasks.add.delay(i, 5)
+        #     task_ids[i] = tid.id
+        #     app.logger.info("Task[%s] started", tid)
+        # return {"tasks": task_ids}, 200
+
+        task_id = tasks.process_review.delay().id
+        app.logger.info("Task[%s] started", task_id)
+        return {"taskId": task_id}
 
     review_routes(app)
     business_routes(app)

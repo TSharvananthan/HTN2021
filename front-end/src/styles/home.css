@@ -9,6 +9,7 @@
 #home {
   height: 750px;
   background: black;
+
   font-family: "Mulish", sans-serif;
 }
 
@@ -17,6 +18,10 @@
   align-self: center;
 }
 
+.wrapper {
+  z-index: 10000;
+  position: sticky;
+}
 /**** rectangle effect *****/
 .proto-container {
   position: absolute;

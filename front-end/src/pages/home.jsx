@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div>
-      <section className="text-center" id="home">
+      <section className="text-center section-a" id="home">
         <div class=" container grid justify-content-center">
           <div></div>
           <div className="content-container">
@@ -14,26 +14,28 @@ export const Home = () => {
               <div class="proto"></div>
               <div class="proto"></div>
             </div>
+            <div className="wrapper">
+              <h1>
+                {" "}
+                Find reviews instantly with{" "}
+                <span className="text-primary">AI</span>{" "}
+              </h1>
+              <p style={{ margin: "4em 0 4em 0" }}>
+                {" "}
+                Simplifying customer reviews for you so you can find the best
+                businesses, save money, and get instant feedback...{" "}
+              </p>
 
-            <h1>
-              {" "}
-              Find reviews instantly with{" "}
-              <span className="text-primary">AI</span>{" "}
-            </h1>
-            <p style={{ margin: "4em 0 4em 0" }}>
-              {" "}
-              Simplifying customer reviews for you so you can find the best
-              businesses, save money, and get instant feedback...{" "}
-            </p>
-            <Link to="/reviews">
-              <button
-                type="button"
-                class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100"
-                type="submit"
-              >
-                Start searching
-              </button>
-            </Link>
+              <Link to="/reviews">
+                <button
+                  type="button"
+                  class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100"
+                  type="submit"
+                >
+                  Start searching
+                </button>
+              </Link>
+            </div>
           </div>
           <div></div>
         </div>

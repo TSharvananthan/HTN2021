@@ -21,19 +21,20 @@ export const Home = () => {
                 Simplifying customer reviews for you so you can find the best
                 businesses, save money, and get instant feedback...
               </p>
-              <form class="form-inline my-2 my-lg-0">
-                <button
-                  type="button"
-                  class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100"
-                  type="submit"
-                >
+
+              <a
+                href="/reviews"
+                class="btn btn-primary my-2 my-sm-0 btn-lg btn-block w-100"
+              >
+                <Link to="/reviews" style={{ color: "white" }}>
                   Start searching
-                </button>
-              </form>
+                </Link>
+              </a>
             </div>
             <div></div>
           </div>
         </section>
+    
 
         <section className="text-center section-b">
           <div className="img-bg"></div>
@@ -57,12 +58,12 @@ export const Home = () => {
             <h2 class="pb-5">Inspiration</h2>
             <p>
               Every year, hundreds of thousands of new businesses open up, but
-              how do businesses know how customers are feeling? It takes time
-              to find the right views and often there is ambiguity. This brought
-              us an idea to help business and as welll as customers to have an
-              app to find lots of views that are simplified with no more
-              wondering how a customer feel, and allows others to find the service they need
-              for their family and friends.
+              how do businesses know how customers are feeling? It takes time to
+              find the right views and often there is ambiguity. This brought us
+              an idea to help business and as welll as customers to have an app
+              to find lots of views that are simplified with no more wondering
+              how a customer feel, and allows others to find the service they
+              need for their family and friends.
             </p>
           </div>
         </section>
@@ -71,8 +72,9 @@ export const Home = () => {
           <div class=" container content">
             <h2 class="pb-5">About us</h2>
             <p>
-                        We are a team of developers  a fullstack developer, a machine learning engineer,
-                        fullstack developer, machine learning and front-end developer 
+              We are a team of developers a fullstack developer, a machine
+              learning engineer, fullstack developer, machine learning and
+              front-end developer
             </p>
             <p>
               We recognize that a lot of the tools available pre-covid such as

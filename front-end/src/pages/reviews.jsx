@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useSearchReviews from "../hooks/useSearchReviews";
 import "../styles/reviews.css";
+import "../styles/successanimation.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Card } from "../components/index";
 
@@ -55,9 +56,9 @@ export const Reviews = () => {
             <div class="icon-fix"></div>
           </div>
         </div>
-        <center>
-          <button id="restart">Restart Animation</button>
-        </center>
+        <p className="text-center">
+          Search results for {name} {city}
+        </p>
       </>
     );
   };
@@ -101,10 +102,9 @@ export const Reviews = () => {
           </section>
 
           <div className="grid-item">
-            <Loading></Loading>
-            {/* {status && status.loading && <Loading></Loading>}
+            {status && status.loading && <Loading></Loading>}
             {status && status.success && <Success></Success>}
-            {status && status.error && <Error></Error>} */}
+            {status && status.error && <Error></Error>}
             {search_results &&
               search_results.map((business_info, index) => {
                 return <Card key={index} props={business_info}></Card>;

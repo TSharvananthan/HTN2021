@@ -20,7 +20,7 @@ export const Home = () => {
               Find reviews instantly with{" "}
               <span className="text-primary">AI</span>{" "}
             </h1>
-            <p>
+            <p style={{ margin: "4em 0 4em 0" }}>
               {" "}
               Simplifying customer reviews for you so you can find the best
               businesses, save money, and get instant feedback...{" "}

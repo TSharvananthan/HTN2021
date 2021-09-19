@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400&display=swap");
+
 .grid {
   display: grid;
   grid-template-columns: 1fr repeat(1, minmax(auto, 25em)) 1fr;
@@ -7,6 +9,7 @@
 #home {
   height: 700px;
   background: black;
+  font-family: "Mulish", sans-serif;
 }
 
 .content-container {
@@ -40,7 +43,7 @@
 }
 
 .section-b .img-bg {
-  background-image: url('../images/bg_stars.png');
+  background-image: url("../images/bg_stars.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -78,7 +81,7 @@
 }
 
 .section-d .img-bg {
-  background-image: url('../images/bg_stars.png');
+  background-image: url("../images/bg_stars.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;

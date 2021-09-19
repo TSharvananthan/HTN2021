@@ -1,0 +1,24 @@
+body {
+  background: #0c111b !important;
+}
+
+.title{
+    padding-top: 4em;
+    padding-bottom: 1em;
+}
+.search-container{
+
+display:grid;
+justify-content: center;
+align-items: center;
+align-self: center;
+
+}
+.search{
+
+  padding-top: 2em;  
+  max-width: 1000px;
+  background-color: #232832;
+  padding:1.5em;
+  border-radius: 5px;
+}

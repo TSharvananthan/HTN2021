@@ -1,36 +1,28 @@
-import { Navbar } from './components/index';
-import './styles/global.css';
-import { useEffect } from 'react';
-import { Home, Reviews } from './pages/index';
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Landing from './components/Landing';
+import Footer from './components/Footer';
 
-import useSearchBusinesses from './hooks/useSearchBusinesses';
-
-function App() {
-  // FIXME: Just to test out the hooks
-
-  const { data, status } = useSearchBusinesses({ location: 'vancouver' });
-
-  useEffect(() => {
-    console.log(data);
-  }, [status]);
-
+export default function App() {
   return (
-    <>
-      <Router>
-        <Navbar></Navbar>
+    <Router>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+        }}
+      >
+        <CssBaseline />
         <Switch>
           <Route exact path='/'>
-            <Home></Home>
+            <Landing />
           </Route>
-          <Route exact path='/reviews'>
-            <Reviews></Reviews>
-          </Route>
-          <Route exact path='/feedback'></Route>
         </Switch>
-      </Router>
-    </>
+        <Footer />
+      </Box>
+    </Router>
   );
 }
-
-export default App;

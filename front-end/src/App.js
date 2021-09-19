@@ -1,38 +1,47 @@
-
 import { Navbar } from "./components/index";
 import "./styles/global.css";
 import { useEffect } from "react";
-import { Home ,Reviews} from "./pages/index";
+import { Home, Reviews, PageNotFound, Feedback } from "./pages/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import useSearchBusinesses from './hooks/useSearchBusinesses';
 
-
 function App() {
   // FIXME: Just to test out the hooks
 
-  const { data, status } = useSearchBusinesses({ location: 'vancouver' });
+  const { data, status } = useSearchBusinesses({location: 'vancouver'});
 
   useEffect(() => {
     console.log(data);
   }, [status]);
 
   return (
-    <>
+  <div>
       <Router>
-        <Navbar></Navbar>
+        <Navbar />
+
         <Switch>
-          <Route exact path="/">
-            <Home></Home>
+
+          <Route exact={true} path="/">
+            <Home />
           </Route>
-          <Route exact path="/reviews">
-<Reviews></Reviews>
+
+          <Route exact={true} path="/reviews">
+            <Reviews />
           </Route>
-          <Route exact path="/feedback"></Route>
+
+          <Route exact={true} path="/feedback">
+
+          </Route>
+
+          <Route component={PageNotFound} />
+
         </Switch>
+
       </Router>
-    </>
+    </div>
   );
+
 }
 
 export default App;

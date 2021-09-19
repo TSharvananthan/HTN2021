@@ -5,5 +5,5 @@
 - Install docker
 - Install docker compose
 - cd to root directory
-- Run `dockercompose up --build`
+- Run `docker-compose up --build`
 - Flask server listening on `localhost:5000`

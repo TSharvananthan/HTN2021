@@ -2,27 +2,25 @@ body {
   background: #0c111b !important;
 }
 
-.title{
-    padding-top:2em;
-    padding-bottom: 1em;
+.title {
+  padding-top: 2em;
+  padding-bottom: 1em;
 }
-.search-container{
 
-display:grid;
-    grid-template-columns: repeat(4,1fr);
-gap:2em;
-
+.search-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
 }
+
 .grid-item {
   grid-column-start: 2;
   grid-column-end: 4;
-
 }
-.search{
 
-  padding-top: 2em;  
-
+.search {
+  padding-top: 2em;
   background-color: #232832;
-  padding:1.5em;
+  padding: 1.5em;
   border-radius: 5px;
 }

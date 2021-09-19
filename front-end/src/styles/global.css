@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400&display=swap");
+
 body {
   font-family: "Mulish", sans-serif;
-  background:black !important;
-  color:white  !important;
-  background-image: url('../images/bg_stars.png') !important;
-background-repeat: no-repeat;
-background-size: cover;
-width:100%;
-margin: 0;
-padding: 0;
-z-index:-1;
+  background: black !important;
+  color: white !important;
+  background-image: url("../images/bg_stars.png") !important;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
 }

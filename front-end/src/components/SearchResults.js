@@ -6,6 +6,42 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import ReviewDialog from './ReviewDialog';
+import { createTheme, lighten } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
+
+const defaultTheme = createTheme();
+
+const useStyles = makeStyles(
+  theme => {
+    const getBackgroundColor = color => lighten(color, 0.6);
+    const getHoverBackgroundColor = color => lighten(color, 0.5);
+
+    return {
+      root: {
+        '& .data-grid-row--error': {
+          backgroundColor: getBackgroundColor(theme.palette.error.main),
+          '&:hover': {
+            backgroundColor: getHoverBackgroundColor(theme.palette.error.main),
+          },
+        },
+        '& .data-grid-row--warning': {
+          backgroundColor: getBackgroundColor(theme.palette.warning.main),
+          '&:hover': {
+            backgroundColor: getHoverBackgroundColor(theme.palette.warning.main),
+          },
+        },
+        '& .data-grid-row--success': {
+          backgroundColor: getBackgroundColor(theme.palette.success.main),
+          '&:hover': {
+            backgroundColor: getHoverBackgroundColor(theme.palette.success.main),
+          },
+        },
+      },
+    };
+  },
+  { defaultTheme }
+);
+
 const getSentimentProps = sentiment => {
   const percent = Math.round(sentiment * 100);
   if (percent >= 60) {
@@ -30,6 +66,7 @@ const getSentimentProps = sentiment => {
 };
 
 function SearchResults({ status, data, page, onPageChange, total }) {
+  const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [dialogReview, setDialogReview] = useState(null);
 
@@ -65,10 +102,14 @@ function SearchResults({ status, data, page, onPageChange, total }) {
 
   const renderReviews = () => (
     <DataGrid
-      rows={status !== 'success' ? [] : data.reviews.map(prepareRow)}
+      rows={data?.reviews?.map(prepareRow) || []}
       onRowClick={params => {
         setDialogReview(params.row);
         setOpen(true);
+      }}
+      getRowClassName={params => {
+        const { color } = getSentimentProps(params.row.sentiment);
+        return `data-grid-row--${color}`;
       }}
       autoHeight
       loading={status === 'loading'}
@@ -82,6 +123,7 @@ function SearchResults({ status, data, page, onPageChange, total }) {
       disableColumnSelector
       disableColumnResize
       disableDensitySelector
+      disableSelectionOnClick
       hideFooterSelectedRowCount
       pagination
       page={page}
@@ -91,8 +133,8 @@ function SearchResults({ status, data, page, onPageChange, total }) {
   );
 
   return (
-    <div>
-      {status === 'success' && renderReviews()}
+    <div className={classes.root}>
+      {renderReviews()}
       <ReviewDialog open={open} setOpen={setOpen} review={dialogReview} />
     </div>
   );

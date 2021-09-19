@@ -25,11 +25,11 @@ function Landing() {
   return (
     <Container component='main' sx={{ mt: 8, mb: 2 }} maxWidth='lg'>
       <Typography variant='h2' component='h1' gutterBottom>
-        Find reviews with AI
+        Sentimentality
       </Typography>
       <Typography variant='h6' component='h2' gutterBottom>
         Simplifying customer reviews so you can find the <strong>best businesses</strong>,{' '}
-        <strong>save money</strong>, and get <strong>instant feedback</strong>...
+        <strong>save money</strong>, and get <strong>instant feedback</strong>
       </Typography>
 
       <Grid container justify='center' spacing={2}>

@@ -6,11 +6,10 @@ import Link from '@mui/material/Link';
 function Copyright() {
   return (
     <Typography variant='body2' color='text.secondary'>
-      {'Copyright © '}
-      <Link color='inherit' href='https://material-ui.com/'>
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
+      {'Sentimentality © '}
+      <Link color='inherit'>
+        Hack The North 2021
+      </Link>
       {'.'}
     </Typography>
   );
@@ -27,7 +26,7 @@ const Footer = () => (
     }}
   >
     <Container maxWidth='md'>
-      <Typography variant='body1'>My sticky footer can be found here.</Typography>
+      <Typography variant='body1'>AI powered review analysis</Typography>
       <Copyright />
     </Container>
   </Box>
